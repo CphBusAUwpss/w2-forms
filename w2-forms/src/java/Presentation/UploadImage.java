@@ -1,3 +1,5 @@
+package Presentation;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -34,14 +36,9 @@ public class UploadImage extends HttpServlet {
         String description = request.getParameter("description"); // Retrieves <input type="text" name="description">
         Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-        //InputStream fileContent = filePart.getInputStream();
-//        File uploadsfolder = new File("c:/uploads");
-        // gets absolute path of the web application - NOT Recommended (since this when deployed as WAR-file can be an in memory path that cannot be written to)
-        String appPath = request.getServletContext().getRealPath("");
-        // constructs path of the directory to save uploaded file
-        String folder = appPath + File.separator + UPLOAD;
-        System.out.println("FOLDER: "+folder);
-        File uploadsfolder = new File(folder);
+        
+        File uploadsfolder = new File("c:/uploads");
+        
         if (!uploadsfolder.exists()) {
             uploadsfolder.mkdir();
         }
@@ -50,12 +47,13 @@ public class UploadImage extends HttpServlet {
         try (InputStream input = filePart.getInputStream()) {
             Files.copy(input, file.toPath());
         }
+        
         File[] files = uploadsfolder.listFiles();
         ServletOutputStream out = response.getOutputStream();
         out.println("<h1>Show all uploaded images</h1>");
         for (File theFile : files) {
-            out.println("<img src=\""+UPLOAD+File.separator+theFile.getName()+"\"/>");
-            
+            String fullpath = theFile.getPath();
+            out.println("<img src=\"ShowImage?path="+fullpath+"\">");
         }
     }
 
