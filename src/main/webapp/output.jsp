@@ -13,5 +13,13 @@
     </head>
     <body>
         Hello <%= request.getParameter("name") %>
+        <img src="<% 
+             if(request.getParameter("name").equals("Hans")){
+             out.print("img/goat1.jpg");
+             } else {
+             out.print("img/goat2.jpg");
+             }
+            
+             %>" alt=""/>
     </body>
 </html>
