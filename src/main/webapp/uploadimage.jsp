@@ -18,7 +18,7 @@
     </head>
     <body>
         <h1>Upload an image</h1>
-        <form name="upload" action="UploadImage" method="POST" enctype="multipart/form-data">
+        <form action="UploadImage" name="upload" method="POST" enctype="multipart/form-data">
             Choose a local image<input type="file" name="file" value="" /><br>
             Add a description <input type="text" name="description"><br>
             <input type="submit" value="Submit" name="submit" />

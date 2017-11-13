@@ -32,7 +32,7 @@
             <h1>Registration form</h1>
         <form action="Registration" method="POST">
             First Name:
-            <input type="text" name="firstname"><br>
+            <input type="text" name="fname"><br>
             Last Name:
             <input type="text" name="lastname"><br>
             Password:
