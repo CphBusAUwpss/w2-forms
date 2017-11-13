@@ -1,6 +1,9 @@
 package control;
 
+import domain.Product;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,6 +35,10 @@ public class MyLittleServlet extends HttpServlet {
 //        out.println("name: "+name+" profession: "+profession);
 //        out.close();
         //response.sendRedirect("hello.jsp");
+        List<Product> products = new ArrayList();
+        products.add(new Product("Mælk", 3.45));
+        products.add(new Product("Brød", 2.35));
+        request.setAttribute("products", products);
         RequestDispatcher rd = request.getRequestDispatcher("myLittleHello.jsp");
         rd.forward(request, response);
     } 

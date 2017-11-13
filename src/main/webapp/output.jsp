@@ -14,6 +14,7 @@
     <body>
         Hello <%= request.getParameter("name") %>
         <img src="<% 
+            String fname = "blblblbl";
              if(request.getParameter("name").equals("Hans")){
              out.print("img/goat1.jpg");
              } else {
@@ -21,5 +22,6 @@
              }
             
              %>" alt=""/>
+        <p><% out.println(fname); %></p>
     </body>
 </html>
