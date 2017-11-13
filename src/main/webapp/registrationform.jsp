@@ -30,11 +30,11 @@
     <body>
         <div class="bluebox">
             <h1>Registration form</h1>
-        <form action="Registration" method="POST">
+        <form action="RegisterUser" method="post">
             First Name:
             <input type="text" name="fname"><br>
             Last Name:
-            <input type="text" name="lastname"><br>
+            <input type="text" name="lname"><br>
             Password:
             <input type="password" name="password"><br>
             Are you male or female?<br>
